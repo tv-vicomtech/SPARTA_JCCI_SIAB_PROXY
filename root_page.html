@@ -1,0 +1,91 @@
+// Check that our URL is well-formed. Redirect to HTTPS if necessary
+(function() {
+  var hasSSL = false;
+  var path   = document.location.pathname;
+  var proto  = (hasSSL || (document.location.protocol == 'https:'))
+               ? 'https:' : 'http:';
+  if (path.match(/plain/)) {
+    proto   = 'http:';
+  }
+  path      = path.replace(/\/+/, '/').replace(/\/$/, '');
+  if (!path.match(/(?:\/|\/plain)$/)) {
+    path   += '/';
+  }
+  var url   = proto + '//' + document.location.host + path;
+  if (document.location.search != '' &&
+      document.location.search != '?') {
+    url    += document.location.search;
+  }
+  if (document.location.hash != '' &&
+      document.location.hash != '#') {
+    url    += document.location.hash;
+  }
+  //if (url != document.location.href) {
+  //  document.location.replace(url);
+  //}
+})();
+
+(function() {
+  // We would like to hide overflowing lines as this can lead to
+  // visually jarring results if the browser substitutes oversized
+  // Unicode characters from different fonts. Unfortunately, a bug
+  // in Firefox prevents it from allowing multi-line text
+  // selections whenever we change the "overflow" style. So, only
+  // do so for non-Netscape browsers.
+  if (typeof navigator.appName == 'undefined' ||
+      navigator.appName != 'Netscape') {
+    document.write('<style type="text/css">' +
+                   '#vt100 #console div, #vt100 #alt_console div {' +
+                   '  overflow: hidden;' +
+                   '}' +
+                   '</style>');
+  }
+})();
+
+// User warning on window close
+window.onbeforeunload = function(e) {
+  if (typeof window.shellinabox.session != "undefined") {
+    return "Are you sure you want to leave this page?";
+  }
+  // Don't use explicit return
+}
+
+// Added code to work with Sparta JCCI
+// ************************************************************** //
+function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+}
+
+var token = getCookie("token") 
+var interaction_url = getCookie("interaction")
+var s = document.createElement('script');
+s.type = 'text/javascript';
+
+$.ajax({
+  url: interaction_url + "ShellInABox.js",
+  dataType: 'text',
+  headers: {'X-Auth-Token': token},
+  success:function(result){
+     try {
+       s.appendChild(document.createTextNode(result));
+       document.body.appendChild(s);
+       setTimeout('window.shellinabox = new ShellInABox()', 100)
+     } catch (e) {
+       s.text = result;
+       document.body.appendChild(s);
+     }
+   }
+})
+// ************************************************************ //
