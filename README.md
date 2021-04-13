@@ -23,7 +23,7 @@
     - AUTHZFORCE_PORT=8443
     - Choose port to serve proxy in and configure it: SPARTA_PROXY_HTTPS_PORT=
     
-5. Ask for PEP Proxy credentials to SPARTA Access Control System managers (lmerino@vicomtech.org) and write Proxy credentials to communicate with Sparta IdM in .env file
+5. Ask for PEP Proxy credentials to SPARTA Access Control System managers (jafernandez@vicomtech.org, fzola@vicomtech.org) and write Proxy credentials to communicate with Sparta IdM in .env file
 
 6. Update node interaction data json field to add information about new service available
 
