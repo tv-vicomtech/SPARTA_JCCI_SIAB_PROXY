@@ -17,9 +17,9 @@
 4. Change the parameters in .env file:
     - SPARTA_HOST=private IP of the machine running ShellInAbox
     - SPARTA_PORT=port running ShellInABox
-    - KEYROCK_HOST=https://jcci.sparta.eu
+    - KEYROCK_HOST=jcci.sparta.eu
     - KEYROCK_PORT=4443
-    - AUTHZFORCE_HOST=https://jcci.sparta.eu
+    - AUTHZFORCE_HOST=jcci.sparta.eu
     - AUTHZFORCE_PORT=8443
     - Choose port to serve proxy in and configure it: SPARTA_PROXY_HTTPS_PORT=
     
