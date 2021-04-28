@@ -20,7 +20,7 @@
     - KEYROCK_HOST=jcci.sparta.eu
     - KEYROCK_PORT=4443
     - AUTHZFORCE_HOST=jcci.sparta.eu
-    - AUTHZFORCE_PORT=8443
+    - AUTHZFORCE_PORT=4445
     - Choose port to serve proxy in and configure it: SPARTA_PROXY_HTTPS_PORT=
     
 5. Ask for PEP Proxy credentials to SPARTA Access Control System managers (jafernandez@vicomtech.org, fzola@vicomtech.org) and write Proxy credentials to communicate with Sparta IdM in .env file
