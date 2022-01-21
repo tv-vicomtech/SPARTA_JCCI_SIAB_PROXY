@@ -6,6 +6,8 @@
 - Another machine with ShellInAbox installed and started: $ sudo apt update && sudo apt install -y shellinabox && shellinabox -k   
 - First and second machine must be able to comunicate with eachother, they must be in the same network, or they can even be the same machine (althought it is not recommended).
 
+#### N.B. if after the execution of shellinabox -k you get the following error 'shellinabox: command not found', please use "sudo service shellinabox start"
+
 # Steps-to-follow
 
 1. Git clone this project in the machine with the public IP or domain and HTTPS certs.
@@ -18,7 +20,7 @@
     - SPARTA_HOST=private IP of the machine running ShellInAbox
     - SPARTA_PORT=port running ShellInABox
     - KEYROCK_HOST=jcci.sparta.eu
-    - KEYROCK_PORT=4443
+    - KEYROCK_HTTPS_PORT=4443
     - AUTHZFORCE_HOST=jcci.sparta.eu
     - AUTHZFORCE_PORT=4445
     - Choose port to serve proxy in and configure it: SPARTA_PROXY_HTTPS_PORT=
