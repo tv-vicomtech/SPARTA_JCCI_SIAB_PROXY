@@ -17,5 +17,5 @@ COPY ShellInABox.js /opt/fiware-pep-proxy/shellinabox/ShellInABox.js
 
 # Run the command inside your image filesystem.
 RUN sed -i "s|cert/cert.crt|cert/cert.pem|g" /opt/fiware-pep-proxy/config.js
-RUN sed -i "s|cert/key.key|cert/privakey.pem|g" /opt/fiware-pep-proxy/config.js
-RUN sed -i -e "/privakey.pem/a\\  ca_cert: \['cert/chain.pem', 'cert/fullchain.pem'\]," /opt/fiware-pep-proxy/config.js
+RUN sed -i "s|cert/key.key|cert/privkey.pem|g" /opt/fiware-pep-proxy/config.js
+RUN sed -i -e "/privkey.pem/a\\  ca_cert: \['cert/chain.pem', 'cert/fullchain.pem'\]," /opt/fiware-pep-proxy/config.js
