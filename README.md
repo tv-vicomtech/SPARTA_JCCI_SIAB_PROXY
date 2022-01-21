@@ -6,7 +6,7 @@
 - Another machine with ShellInAbox installed and started: $ sudo apt update && sudo apt install -y shellinabox && shellinabox -k   
 - First and second machine must be able to comunicate with eachother, they must be in the same network, or they can even be the same machine (althought it is not recommended).
 
-#### N.B. if after the execution of shellinabox -k you get the following error 'shellinabox: command not found', please use "sudo service shellinabox start"
+#### N.B. if after the execution of shellinabox -k you get the following error 'shellinabox: command not found', please replace it with "sudo service shellinabox start"
 
 # Steps-to-follow
 
